@@ -1,6 +1,8 @@
 package com.zumori.newsanalizer;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -20,11 +22,27 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
     private AppBarConfiguration mAppBarConfiguration;
 
     private ListView list;
     private String[] news;
     private ArrayAdapter<String> adapter;
+
+    public void secondPage(MenuItem item) {
+        startActivity(new Intent(this, Main2Activity.class));
+    }
+//    protected void secondPage(View view) {
+////        Intent intent = new Intent(this, DisplayMessageActivity.class);
+////        EditText editText = (EditText) findViewById(R.id.editText);
+////        String message = editText.getText().toString();
+////        intent.putExtra(EXTRA_MESSAGE, message);
+////        startActivity(intent);
+//
+//        startActivity(new Intent(this, Main2Activity.class));
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
