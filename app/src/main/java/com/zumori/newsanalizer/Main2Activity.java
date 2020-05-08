@@ -31,7 +31,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main2);
 
-        click = (Button) findViewById(R.id.button45);
+        click = (Button) findViewById(R.id.loadDataButton);
         data = (TextView) findViewById(R.id.textView3);
 
 //        click.setOnClickListener(new View.OnClickListener() {

@@ -13,4 +13,6 @@
 
     <string name="home_second">Home Second</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="news_list">News List</string>
+    <string name="title_activity_news_list">NewsListActivity</string>
 </resources>

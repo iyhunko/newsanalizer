@@ -1,12 +1,11 @@
 package com.zumori.newsanalizer;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -20,43 +19,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
-
-
-
+public class NewsListActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    private ListView list;
-    private String[] news;
-    private ArrayAdapter<String> adapter;
-
-    public void secondPage(MenuItem item) {
-        startActivity(new Intent(this, Main2Activity.class));
-    }
-    public void newsListPage(MenuItem item) {
-        startActivity(new Intent(this, NewsListActivity.class));
-    }
-//    protected void secondPage(View view) {
-////        Intent intent = new Intent(this, DisplayMessageActivity.class);
-////        EditText editText = (EditText) findViewById(R.id.editText);
-////        String message = editText.getText().toString();
-////        intent.putExtra(EXTRA_MESSAGE, message);
-////        startActivity(intent);
-//
-//        startActivity(new Intent(this, Main2Activity.class));
-//    }
+    public static ListView data;
+    public static Activity thisActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        list = findViewById(R.id.listView);
-        news = getResources().getStringArray(R.array.news);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, news);
-        list.setAdapter(adapter);
-
+        setContentView(R.layout.activity_news_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -78,12 +51,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        data = (ListView) findViewById(R.id.news_list);
+        thisActivity = this;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.news_list, menu);
         return true;
     }
 
